@@ -17,8 +17,8 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
-    <PlatformToolset>v110</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v100</PlatformToolset>
+    <CharacterSet>NotSet</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -75,25 +75,32 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;LUA_OPNAMES;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>false</StringPooling>
       <ExceptionHandling />
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
       <PrecompiledHeader />
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat />
       <CompileAs>CompileAsC</CompileAs>
     </ClCompile>
+    <PostBuildEvent>
+      <Command>copy $(ProjectDir)\Release\lua.lib $(ProjectDir)\lib\</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\lapi.c" />
     <ClCompile Include="src\lauxlib.c" />
     <ClCompile Include="src\lbaselib.c" />
+    <ClCompile Include="src\lbitlib.c" />
     <ClCompile Include="src\lcode.c" />
+    <ClCompile Include="src\lcorolib.c" />
+    <ClCompile Include="src\lctype.c" />
     <ClCompile Include="src\ldblib.c" />
     <ClCompile Include="src\ldebug.c" />
     <ClCompile Include="src\ldo.c" />
     <ClCompile Include="src\ldump.c" />
     <ClCompile Include="src\lfunc.c" />
     <ClCompile Include="src\lgc.c" />
+    <ClCompile Include="src\linit.c" />
     <ClCompile Include="src\liolib.c" />
     <ClCompile Include="src\llex.c" />
     <ClCompile Include="src\lmathlib.c" />
@@ -101,6 +108,7 @@
     <ClCompile Include="src\loadlib.c" />
     <ClCompile Include="src\lobject.c" />
     <ClCompile Include="src\lopcodes.c" />
+    <ClCompile Include="src\loslib.c" />
     <ClCompile Include="src\lparser.c" />
     <ClCompile Include="src\lstate.c" />
     <ClCompile Include="src\lstring.c" />
